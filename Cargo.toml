@@ -1,0 +1,29 @@
+[package]
+name = "pygamer-quickstart"
+version = "0.1.0"
+authors = ["Jacob Rosenthal <jacobrosenthal@gmail.com>"]
+edition = "2018"
+repository = "https://github.com/jacobrosenthal/pygamer-quickstart"
+keywords = ["pygamer"]
+license = "MIT OR Apache-2.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+pygamer = "~0.5"
+pygamer-panic-led = "0.1.0"
+
+[features]
+# ask the HAL to enable extra features
+default = ["pygamer/sd-card", "pygamer/usb"]
+use_rtt = []
+
+[profile.dev]
+# opt-level = 2 # uncomment for neopixel functionality during debug
+incremental = false
+debug = true
+lto = "thin" # thin for debug speed
+
+[profile.release]
+debug = true
+lto = "fat"
+opt-level = 3
