@@ -4,5 +4,4 @@
     "rust-analyzer.checkOnSave.extraArgs": [
         "--examples"
     ],
-    "rust-analyzer.inlayHints.enable": true
 }
