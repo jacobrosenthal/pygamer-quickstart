@@ -1,13 +1,11 @@
 //! Bare bones example for you to fill out
-//! `cargo hf2 --release`
+//! `cargo run --release`
 
 #![no_std]
 #![no_main]
 
 use pygamer as hal;
-
-// light D13, the red led on the back of the Pygamer, on panic
-use pygamer_panic_led as _;
+use pygamer_panic_led as _; // light D13, back red led on panic
 
 #[hal::entry]
 fn main() -> ! {
