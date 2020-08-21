@@ -17,13 +17,23 @@ pygamer-panic-led = "0.1.0"
 default = ["pygamer/sd-card", "pygamer/usb"]
 use_rtt = []
 
+# setting dev to same as release until theres a way to have
+# vscode run use release mode. Almost nobody has a debugger
+# hooked up anyway, but if you'll need to change this
 [profile.dev]
-# opt-level = 2 # uncomment for neopixel functionality during debug
+codegen-units = 1
+debug = 1
+debug-assertions = false
 incremental = false
-debug = true
-lto = "thin" # thin for debug speed
+lto = "fat"
+opt-level = 3 # neopixel prefers 3 over s
+overflow-checks = false
 
 [profile.release]
-debug = true
+codegen-units = 1
+debug = 1
+debug-assertions = false
+incremental = false
 lto = "fat"
-opt-level = 3
+opt-level = 3 # neopixel prefers 3 over s
+overflow-checks = false
